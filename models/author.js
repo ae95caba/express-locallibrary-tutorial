@@ -45,7 +45,7 @@ AuthorSchema.virtual("date_of_death_formatted").get(function () {
 //Virtual for author lifespan
 AuthorSchema.virtual("lifespan").get(function () {
   return this.date_of_death_formatted && this.date_of_birth_formatted
-    ? `${this.date_of_death_formatted} - ${this.date_of_birth_formatted}`
+    ? `${this.date_of_birth_formatted} - ${this.date_of_death_formatted}`
     : "";
 });
 

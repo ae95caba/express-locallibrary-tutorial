@@ -135,14 +135,14 @@ exports.bookinstance_update_get = asyncHandler(async (req, res, next) => {
   }
 
   res.render("bookinstance_form", {
-    title: "Update Book",
+    title: "Update Book instance",
     book_list: books,
-
+    selected_book: bookinstance.book._id,
     bookinstance: bookinstance,
   });
 });
 
-// Handle BookInstance create on POST.
+// Handle BookInstance update on POST.
 exports.bookinstance_update_post = [
   // Validate and sanitize fields.
   body("book", "Book must be specified").trim().isLength({ min: 1 }).escape(),
@@ -174,6 +174,8 @@ exports.bookinstance_update_post = [
       // There are errors.
       // Render form again with sanitized values and error messages.
       const allBooks = await Book.find({}, "title").exec();
+
+      console.log(`selected book is :${bookInstance.book._id}`);
 
       res.render("bookinstance_form", {
         title: "Update BookInstance",

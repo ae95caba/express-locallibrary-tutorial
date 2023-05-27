@@ -98,12 +98,7 @@ exports.genre_delete_get = asyncHandler(async (req, res, next) => {
   });
 });
 
-// Handle Genre delete on POST.
-exports.genre_delete_post = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: Genre delete POST");
-});
-
-// Handle Author delete on POST.
+// Handle genre delete on POST.
 exports.genre_delete_post = asyncHandler(async (req, res, next) => {
   // Get details of genre and all their books (in parallel)
   const [genre, allBooksInGenre] = await Promise.all([

@@ -158,15 +158,13 @@ exports.author_update_get = asyncHandler(async (req, res, next) => {
     return next(err);
   }
 
-  // Mark our selected genres as checked in  allGenres .
-
   res.render("author_form", {
     title: "Update Author",
     author: author,
   });
 });
 
-// Handle Author create on POST.
+// Handle Author update on POST.
 exports.author_update_post = [
   // Validate and sanitize fields.
   body("first_name")

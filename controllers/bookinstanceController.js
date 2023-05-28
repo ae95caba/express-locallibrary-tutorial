@@ -2,9 +2,6 @@ const BookInstance = require("../models/bookinstance");
 const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 const Book = require("../models/book");
-const debug = require("debug")("bookinstanceController");
-require("dotenv").config();
-//dont know how to make it work
 
 // Display list of all BookInstances.
 exports.bookinstance_list = asyncHandler(async (req, res, next) => {
@@ -98,6 +95,7 @@ exports.bookinstance_delete_get = asyncHandler(async (req, res, next) => {
   // Get details of book instance
   const bookInstance = await BookInstance.findById(req.params.id).exec();
 
+  console.log(`el id the la instancia es : ${bookInstance}`);
   console.log(`el id the la instancia es : ${bookInstance}`);
 
   if (bookInstance === null) {
